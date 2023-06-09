@@ -24,11 +24,6 @@ class Madgwick{
 private:
     static float invSqrt(float x);
     float beta;				// algorithm gain
-    float q0;
-    float q1;
-    float q2;
-    float q3;	// quaternion of sensor frame relative to auxiliary frame
-    float invSampleFreq;
     float roll;
     float pitch;
     float yaw;
@@ -38,6 +33,13 @@ private:
 //-------------------------------------------------------------------------------------------
 // Function declarations
 public:
+
+    float q0;
+    float q1;
+    float q2;
+    float q3;	// quaternion of sensor frame relative to auxiliary frame
+    float invSampleFreq;
+
     Madgwick(void);
     void begin(float sampleFrequency) { invSampleFreq = 1.0f / sampleFrequency; }
     void update(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz);
